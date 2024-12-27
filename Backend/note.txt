@@ -1,0 +1,19 @@
+npm init -y  -> instalasi node  
+npm i express cors dotenv -> instalasi depedensi 
+npm i -D prisma -> instalasi prisma
+npm i @prisma/client -> instalasi untuk controller
+npx prisma init --datasource-provider mysql -> instalasi mysql
+npx prisma migrate dev ->migrate model database
+npx prisma generate
+nodemon -> run server
+npx prisma studio -> cek server prisma
+npm i zod => validator input
+npm i bycript => bycript password
+
+
+== membuat seeder
+https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding
+
+use js
+
+
