@@ -1,5 +1,5 @@
-import 'package:crud_basic/ui/button.dart';
-import 'package:crud_basic/loginPage/component/form.dart';
+import 'package:crud_basic/auth/loginPage/component/button.dart';
+import 'package:crud_basic/auth/loginPage/component/form.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
