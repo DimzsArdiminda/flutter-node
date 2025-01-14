@@ -1,5 +1,5 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers
-
+import 'package:crud_basic/ui/button.dart';
+import 'package:crud_basic/loginPage/component/form.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,54 +10,71 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  String sendDataLogin(String email, String password) {
+    return "Email: $email, Password: $password";
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login Page'),
+
       ),
-      body: Container(
-        child: Center(
+      body: SingleChildScrollView(
+        child: Container(
+          padding: EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.all(10.0),
-                padding: EdgeInsets.all(10.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Colors.blue[100],
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                    padding: EdgeInsets.all(10.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Enter your email',
-                      ),
+              SizedBox(height: 100.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("Halo, Selamat Datang 👋 ",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter your password',
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              
-              )
-              // RaisedButton(
-              //   child: Text('Login'),
-              //   onPressed: () {},
-              // ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text("Silahkan login menggunakan \nakun yang sudah anda buat",
+                  overflow: TextOverflow.clip,),
+                ],
+              ),
+              SizedBox(height: 20.0),
+              FormFieldWidget(
+                label: 'Email Address',
+                labelText: 'Email',
+                name: 'email',
+                controller: emailController,
+              ),
+              SizedBox(height: 20.0),
+              FormFieldWidget(
+                label: 'Password',
+                labelText: 'Password',
+                name: 'password',
+                controller: passwordController,
+              ),
+              SizedBox(height: 20.0),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ButtonWidget(
+                    title: 'Login',
+                    onClick: () => sendDataLogin(emailController.text, passwordController.text),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
-      ) ,
+      ),
     );
   }
 }
