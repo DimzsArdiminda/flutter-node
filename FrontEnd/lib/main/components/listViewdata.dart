@@ -24,3 +24,37 @@ class ListViewProdukDashboard extends StatelessWidget {
     );
   }
 }
+
+
+
+class RekomendasiMenu extends StatelessWidget {
+  const RekomendasiMenu({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        "Belum ada rekomendasi",
+        style: TextStyle(fontSize: 16),
+      ),
+    );
+  }
+}
+
+class FavMenuDashboard extends StatelessWidget {
+  const FavMenuDashboard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        "Tidak ada data favorit",
+        style: TextStyle(fontSize: 16),
+      ),
+    );
+  }
+}
