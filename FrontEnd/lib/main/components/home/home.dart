@@ -11,7 +11,13 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
-  List<Map<String, dynamic>> dataDummy = dataDummymakanan();
+  List<Map<String, dynamic>> dataDummy = [];
+
+  @override
+  void initState() {
+    super.initState();
+    dataDummy = dataDummymakanan();
+  }
 
   String getTimer() {
     if (DateTime.now().hour < 12) {

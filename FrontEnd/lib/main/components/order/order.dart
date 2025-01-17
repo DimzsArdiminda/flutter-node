@@ -1,3 +1,4 @@
+import 'package:crud_basic/auth/loginPage/components/button.dart';
 import 'package:crud_basic/main/components/order/form.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class _OrderPageState extends State<OrderPage> {
   void pesanMakanan() {
     print("Nama Makanan: ${namaMakanan.text}");
     print("Jumlah: ${jumlah.text}");
+    print("Alamat: ${alamat.text}");
   }
 
   @override
@@ -66,22 +68,26 @@ class _OrderPageState extends State<OrderPage> {
                   children: [
                     FormOrder(
                       textLabel : "Nama Makanan",
-                      namaMakanan: namaMakanan
+                      namaMakanan: namaMakanan,
+                      tipe: "text"
                     ),
                     SizedBox(height: 20,),
                     FormOrder(
                       textLabel : "Jumlah",
-                      namaMakanan: jumlah
-                    ),
-                    FormOrder(
-                      textLabel : "Jumlah",
-                      namaMakanan: alamat
+                      namaMakanan: jumlah,
+                      tipe: "number",
                     ),
                     SizedBox(height: 20,),
-                    ElevatedButton(
-                      onPressed: () => pesanMakanan(),
-                      child: Text("Pesan"),
+                    FormOrder(
+                      textLabel : "alamat",
+                      namaMakanan: alamat,
+                      tipe: "text",
                     ),
+                    SizedBox(height: 20,),
+                    ButtonWidget(
+                      title: "Order", 
+                      onClick: pesanMakanan
+                    )
                   ],
                 ),
               ),
