@@ -9,6 +9,7 @@ nodemon -> run server
 npx prisma studio -> cek server prisma
 npm i zod => validator input
 npm i bycript => bycript password
+npm i jsonwebtoken => jwt
 
 
 == membuat seeder

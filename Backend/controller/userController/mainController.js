@@ -2,8 +2,67 @@ import { PrismaClient } from "@prisma/client";
 import { response } from "express";
 import { body, validationResult } from 'express-validator';
 import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 
 const prisma = new PrismaClient();
+dotenv.config();
+
+
+
+// login
+
+export const login = async (req, res) => {
+    const { emailUser, pass } = req.body;
+
+    try {
+        // Validasi input
+        if (!emailUser || !pass) {
+            return res.status(400).json({ msg: 'Email dan password harus diisi' });
+        }
+
+        // Cari user di database berdasarkan email
+        const user = await prisma.user.findUnique({
+            where: { email: emailUser },
+        });
+
+        // Jika user tidak ditemukan
+        if (!user) {
+            return res.status(404).json({ msg: 'User tidak ditemukan' });
+        }
+
+        // Verifikasi password menggunakan bcrypt
+        const isPasswordValid = await bcrypt.compare(pass, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ msg: 'Password salah' });
+        }
+
+        // Buat token JWT
+        const token = jwt.sign(
+            { id: user.id, email: user.email }, // Payload
+            process.env.CODE_GEN_SECRET,       // Secret key
+            { expiresIn: '1h' }                // Masa berlaku token
+        );
+
+        // Simpan token dalam cookie
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', // Hanya untuk HTTPS jika di production
+            sameSite: 'strict',
+            maxAge: 3600000, // 1 jam
+        });
+
+        res.status(200).json({
+            msg: 'Login berhasil',
+            token, // Bisa dikirimkan juga jika diperlukan di frontend
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ msg: 'Terjadi kesalahan pada server' });
+    }
+};
+
+
 
 
 // GET

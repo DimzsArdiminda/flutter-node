@@ -1,10 +1,22 @@
 GET http://localhost:4000/
 
-###
-GET http://localhost:4000/user
 
 ###
-POST http://localhost:4000/user-add
+GET http://192.168.1.101:4000/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImNtNjFrMHVxZjAwMDJhajg4aHdmcmdyZXoiLCJlbWFpbCI6ImRpbWFzIiwiaWF0IjoxNzM3MTY2NTc4LCJleHAiOjE3MzcxNzAxNzh9.wJPbACrs0LlA6mXuzqrF4QjLP0kaBQv1SA_Ddu9CFIw
+
+### 
+POST  http://192.168.1.101:4000/login
+Content-Type: application/json
+
+{
+    "emailUser" : "dimas",
+    "pass" : "132456789"
+}
+
+
+###
+POST http://192.168.1.101:4000/user-add
 Content-Type: application/json
 
 {

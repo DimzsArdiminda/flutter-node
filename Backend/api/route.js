@@ -7,16 +7,19 @@ import {
     updateUser,
     getAllUser,
     getUserByEmail,
-    deleteUser
+    deleteUser,
+    login
 } from "../controller/userController/mainController.js";
 
+import { verifyToken } from "../middleware/Bearer.js";
 
 const rt = express.Router();
 // cek router
 rt.get('/', (req, res) => {
     res.send('Hello World');
 });
-rt.get("/user", getAllUser);
+rt.post('/login', login);
+rt.get("/user",verifyToken, getAllUser);
 rt.post("/user-add", validate(userSchema), addUser);
 rt.get("/get-user/:email", getUserByEmail);
 rt.patch("/update-user/:email", validate(userUpdateSchema), updateUser);

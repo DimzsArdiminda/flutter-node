@@ -12,8 +12,21 @@ app.use(express.json());
 app.use(rt);
 
 
-app.listen(
-    process.env.PORT,() => {
-        console.log(`Server is running on port ${process.env.PORT}`);
-    }
-)
+// lokal port
+// app.listen(
+//     process.env.PORT,() => {
+//         console.log(`Server is running on port ${process.env.PORT}`);
+//     }
+// )
+
+// use IP and PORT from .env
+// Default port and host
+const PORT = process.env.PORT;
+const HOST = process.env.IP_ADDRES ;
+
+// Start server
+app.listen(process.env.PORT, process.env.IP_ADDRES, () => {
+    console.log(`Server running at http://${process.env.IP_ADDRES}:${process.env.PORT}`);
+});
+
+
