@@ -8,13 +8,13 @@ void checkStatusLogin() {
   final SharedPreferences cekLogin = SharedPreferences.getInstance() as SharedPreferences;
   var statusLogin = cekLogin.getBool('statusLogin');
   if (statusLogin == false) {
-    runApp(MaterialApp(
+    runApp(const MaterialApp(
       // home: LoginPage(),
       home: Dashboard(),
       debugShowCheckedModeBanner: false,
     ));
   } else {
-    runApp(MaterialApp(
+    runApp(const MaterialApp(
       // home: Dashboard(),
       debugShowCheckedModeBanner: false,
     ));

@@ -81,7 +81,7 @@ class _MyWidgetState extends State<MyWidget> {
                 ),
                 const SizedBox(height: 20),
 
-                CarouselDashboard(),
+                const CarouselDashboard(),
                 const SizedBox(height: 20),
 
                 const Text(

@@ -13,8 +13,9 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  String sendDataLogin(String email, String password) {
-    return "Email: $email, Password: $password";
+  void sendDataLogin() {
+    print("Email: ${emailController.text}");
+    print("Password: ${passwordController.text}");
   }
 
   @override
@@ -22,11 +23,11 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
           child: Column(
             children: [
-              SizedBox(height: 100.0),
-              Row(
+              const SizedBox(height: 100.0),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text("Halo, Selamat Datang 👋 ",
@@ -37,37 +38,43 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ],
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text("Silahkan login menggunakan \nakun yang sudah anda buat",
                   overflow: TextOverflow.clip,),
                 ],
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 50.0),
               FormFieldWidget(
                 label: 'Email Address',
                 labelText: 'Email',
-                name: 'email',
-                controller: emailController,
+                name : emailController,
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               FormFieldWidget(
                 label: 'Password',
                 labelText: 'Password',
-                name: 'password',
-                controller: passwordController,
+                name: passwordController,
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   ButtonWidget(
                     title: 'Login',
-                    onClick: () => sendDataLogin(emailController.text, passwordController.text),
+                    onClick: () => sendDataLogin(),
                   ),
                 ],
               ),
+
+
+            // footer
+            const SizedBox(
+              height: 200.0,
+              
+              ),
+              Text("Developed by ardiminda projek")
             ],
           ),
         ),

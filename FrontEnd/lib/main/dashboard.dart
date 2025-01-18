@@ -1,8 +1,7 @@
-import 'package:crud_basic/main/components/carousel.dart';
+// ignore_for_file: unused_element
+
 import 'package:crud_basic/main/components/home/home.dart';
-import 'package:crud_basic/main/components/listViewdata.dart';
 import 'package:crud_basic/main/components/order/order.dart';
-import 'package:crud_basic/main/data/data.dart';
 import 'package:crud_basic/settings/settings.dart';
 import 'package:flutter/material.dart';
 
@@ -85,8 +84,8 @@ class _DashboardState extends State<Dashboard> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          MyWidget(),
-          OrderPage(),
+          const MyWidget(),
+          const OrderPage(),
           _buildSchoolPage(),
         ],
       ),

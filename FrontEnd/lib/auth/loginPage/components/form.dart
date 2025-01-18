@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 class FormFieldWidget extends StatelessWidget {
   final String label;
   final String labelText;
-  final String name;
-  final TextEditingController controller;
+  final TextEditingController name;
 
   const FormFieldWidget({
     required this.label,
     required this.labelText,
     required this.name,
-    required this.controller,
     super.key,
   });
 
@@ -19,7 +17,7 @@ class FormFieldWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 8.0),
+        const SizedBox(height: 8.0),
         TextFormField(
           validator: (value) {
             if (value?.isEmpty ?? true) {
@@ -27,20 +25,20 @@ class FormFieldWidget extends StatelessWidget {
             }
             return null;
           },
-          controller: controller,
+          controller: name,
           decoration: InputDecoration(
             hintText: 'Enter your $labelText',
             labelText: labelText,
-            labelStyle: TextStyle(color: Colors.black),
+            labelStyle: const TextStyle(color: Colors.black),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.grey),
+              borderSide: const BorderSide(color: Colors.grey),
               borderRadius: BorderRadius.circular(13.0),
             ),
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.blue),
+              borderSide: const BorderSide(color: Colors.blue),
               borderRadius: BorderRadius.circular(13.0),
             ),
           ),

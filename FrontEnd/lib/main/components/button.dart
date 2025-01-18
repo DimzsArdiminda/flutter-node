@@ -15,7 +15,7 @@ class ButtonDashboardShowList extends StatelessWidget {
         backgroundColor: Colors.white,
         // foregroundColor: Colors.black,
         // elevation: 2,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
@@ -30,7 +30,7 @@ class ButtonDashboardShowList extends StatelessWidget {
           height: 100,
         ),
         title: Text(menu['Nama'],
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 15,
             fontWeight: FontWeight.bold,
           ),

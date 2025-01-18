@@ -34,7 +34,7 @@ class RekomendasiMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         "Belum ada rekomendasi",
         style: TextStyle(fontSize: 16),
@@ -50,7 +50,7 @@ class FavMenuDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         "Tidak ada data favorit",
         style: TextStyle(fontSize: 16),

@@ -70,13 +70,13 @@ class _SettingsState extends State<Settings> {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.all(20),
+        margin: const EdgeInsets.all(20),
         child: ListView(
           children: [
 
             // sapaan
             Container(
-              padding: EdgeInsets.only( top: 10, bottom: 10),
+              padding: const EdgeInsets.only( top: 10, bottom: 10),
               decoration: BoxDecoration(
                 color: Colors.blue[200],
                 borderRadius: BorderRadius.circular(10),
@@ -109,12 +109,12 @@ class _SettingsState extends State<Settings> {
             ),
 
             // button
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
-                minimumSize: Size(200, 50),
+                minimumSize: const Size(200, 50),
               ),
               onPressed: () => alertLogout(),
               child: const Text('Logout'),

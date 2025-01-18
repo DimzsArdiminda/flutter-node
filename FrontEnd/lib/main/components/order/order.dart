@@ -29,27 +29,27 @@ class _OrderPageState extends State<OrderPage> {
           margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 0.0),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: Colors.blue[200],
                   borderRadius: BorderRadius.circular(10),
                 ),
-              child: Row(
+              child: const Row(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Pesan makanan kamu",
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const Text(
+                        Text(
                           "Mau makan apa hari ini?",
                         ),
                       ],
@@ -59,11 +59,11 @@ class _OrderPageState extends State<OrderPage> {
                 ),
               ),
 
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
               // form inputan 
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   children: [
                     FormOrder(
@@ -71,19 +71,19 @@ class _OrderPageState extends State<OrderPage> {
                       namaMakanan: namaMakanan,
                       tipe: "text"
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     FormOrder(
                       textLabel : "Jumlah",
                       namaMakanan: jumlah,
                       tipe: "number",
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     FormOrder(
                       textLabel : "alamat",
                       namaMakanan: alamat,
                       tipe: "text",
                     ),
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
                     ButtonWidget(
                       title: "Order", 
                       onClick: pesanMakanan
