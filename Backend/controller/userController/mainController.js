@@ -11,7 +11,6 @@ dotenv.config();
 
 
 // login
-
 export const login = async (req, res) => {
     const { emailUser, pass } = req.body;
 
@@ -61,6 +60,7 @@ export const login = async (req, res) => {
         res.status(500).json({ msg: 'Terjadi kesalahan pada server' });
     }
 };
+
 
 
 
