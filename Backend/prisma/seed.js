@@ -46,6 +46,33 @@ async function main() {
         },
     });
 
+    const makanan = await prismaMi.menu.upsert({
+        where: {
+            kode: "random2", // Gunakan ID unik di sini
+        },
+        update: {},
+        create: {
+            kode:"NasiGoreng",
+            name: 'Nasi Goreng',
+            price: 15000,
+            stock: 100,
+        },
+    });
+    
+    const minuman = await prismaMi.menu.upsert({
+        where: {
+            kode: "random1", // Gunakan ID unik di sini
+        },
+        update: {},
+        create: {
+            kode:"EsTeh",
+            name: 'Es Teh',
+            price: 5000,
+            stock: 100,
+        },
+    });
+    
+
     console.log('User created or updated:', user, Usre2);
 }
 

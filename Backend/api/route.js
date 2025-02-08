@@ -11,6 +11,11 @@ import {
     login
 } from "../controller/userController/mainController.js";
 
+import { 
+    getAllMenu
+
+} from "../controller/menuController/mainController.js";
+
 import { verifyToken } from "../middleware/Bearer.js";
 
 const rt = express.Router();
@@ -18,13 +23,16 @@ const rt = express.Router();
 rt.get('/', (req, res) => {
     res.send('Hello World');
 });
+// Route Login
 rt.post('/login', login);
 rt.get("/user",verifyToken, getAllUser);
 rt.post("/user-add", validate(userSchema), addUser);
-rt.get("/get-user/:email", getUserByEmail);
-rt.patch("/update-user/:email", validate(userUpdateSchema), updateUser);
-rt.delete("/delete-user/:email", deleteUser);
+rt.get("/get-user/:email", verifyToken ,getUserByEmail);
+rt.patch("/update-user/:email",verifyToken , validate(userUpdateSchema), updateUser);
+rt.delete("/delete-user/:email",verifyToken ,deleteUser);
 
+// route menu
+rt.get("/menu",verifyToken, getAllMenu);
 
 
 export default rt
